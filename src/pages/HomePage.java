@@ -20,7 +20,6 @@ public class HomePage {
 	    PageFactory.initElements(driver, this);
 	}
 	
-	
 	public void searchForProduct(String product) {
 		serchBox.clear();
 		serchBox.sendKeys(product);
