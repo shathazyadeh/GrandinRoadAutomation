@@ -21,9 +21,11 @@ public class HomePage {
 	}
 	
 	public void searchForProduct(String product) {
-		serchBox.clear();
-		serchBox.sendKeys(product);
-		serchBox.sendKeys(Keys.ENTER);
+	    serchBox.click();
+	    serchBox.sendKeys(Keys.CONTROL + "a");
+	    serchBox.sendKeys(Keys.DELETE);
+	    serchBox.sendKeys(product);
+	    serchBox.sendKeys(Keys.ENTER);
 	}
 	
 }

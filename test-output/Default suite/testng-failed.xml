@@ -7,7 +7,7 @@
         <methods>
           <include name="setUp"/>
           <include name="tearDown"/>
-          <include name="testSearch" invocation-numbers="1 2"/>
+          <include name="testSearch" invocation-numbers="1"/>
         </methods>
       </class> <!-- testsCases.GrandinRoadSearchTest -->
     </classes>
