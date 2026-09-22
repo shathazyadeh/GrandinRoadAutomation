@@ -51,5 +51,19 @@ public class SearchResultsPage {
             System.out.println(" No products found or timeout occurred.");
             return false;
         }
+        
+        
     }
-}
+
+// click on the first product 
+    public void clickOnFirstProduct() {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(12));
+        List<WebElement> products = wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(productTitlesLocator));
+        if (!products.isEmpty()) {
+            products.get(0).click();
+            System.out.println(" Clicked on the first product successfully.");
+        } else {
+            throw new RuntimeException("No products available to click");
+        }
+    }
+    }
