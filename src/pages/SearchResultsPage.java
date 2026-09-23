@@ -4,6 +4,7 @@ import java.time.Duration;
 import java.util.List;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -14,7 +15,7 @@ public class SearchResultsPage {
 
     By searchResultsHeadingLocator = By.id("mainContentTitle");
     By productTitlesLocator = By.cssSelector(".c-product-title");
-
+    By productImageLocator = By.cssSelector(".c-product-item-img");
     public SearchResultsPage(WebDriver driver) {
         this.driver = driver;
     }
@@ -58,12 +59,10 @@ public class SearchResultsPage {
 // click on the first product 
     public void clickOnFirstProduct() {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(12));
-        List<WebElement> products = wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(productTitlesLocator));
-        if (!products.isEmpty()) {
-            products.get(0).click();
-            System.out.println(" Clicked on the first product successfully.");
-        } else {
-            throw new RuntimeException("No products available to click");
-        }
+        List<WebElement> products = wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(productImageLocator));
+        WebElement firstProduct = products.get(0);
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("arguments[0].click();", firstProduct);
+        System.out.println("Clicked on the first product image successfully.");
     }
     }
