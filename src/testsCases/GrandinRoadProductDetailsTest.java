@@ -49,6 +49,8 @@ public class GrandinRoadProductDetailsTest extends BaseTest {
         boolean isPriceVisible = productDetailsPage.isProductPriceDisplayed();
         Assert.assertTrue(isPriceVisible, "Product price is not displayed");
         
+        productDetailsPage.selectFirstColorIfAvailable();
+        
         boolean isAvailable=productDetailsPage.isProductAvailable();
         Assert.assertTrue(isAvailable, "product is not available");
         

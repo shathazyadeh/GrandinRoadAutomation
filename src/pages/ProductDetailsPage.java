@@ -13,7 +13,7 @@ public class ProductDetailsPage {
     By productNameLocator = By.cssSelector("h1.t-universal-product-details-heading-info");
     By productPriceLocator = By.cssSelector(".c-universal-price-new div.price");
     By addToCartLocator = By.cssSelector("button[data-analytics-name='add_to_cart']");
-    
+    By colorSwatchLocator = By.cssSelector("button.c-universal-options__option-swatch"); 
     
     
     public ProductDetailsPage(WebDriver driver) {
@@ -42,24 +42,40 @@ public class ProductDetailsPage {
     }
     
     
+    
+    public void selectFirstColorIfAvailable() {
+        try {
+            WebDriverWait shortWait = new WebDriverWait(driver, Duration.ofSeconds(5));
+            WebElement firstColor = shortWait.until(ExpectedConditions.elementToBeClickable(colorSwatchLocator));
+            if (firstColor.isDisplayed()) {
+                firstColor.click();
+                System.out.println("First color option selected successfully");
+                Thread.sleep(1500);
+            }
+        } catch (Exception e) {
+            System.out.println("No color options required for this product");
+        }
+    }
+    
+    
+    
+    
     public boolean isProductAvailable() {
-    	
-    	WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
-    	
-    	try {
-            WebElement addToCartBtn = wait.until(ExpectedConditions.visibilityOfElementLocated(addToCartLocator));
-            boolean isDisplayed = addToCartBtn.isDisplayed();
-            boolean isEnabled = addToCartBtn.isEnabled();
-            if (isDisplayed && isEnabled) {
-                System.out.println("Product availability status: Available Button is visible and enabled");
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+        try {
+            WebElement addButton = wait.until(ExpectedConditions.elementToBeClickable(addToCartLocator));
+            
+            if (addButton.isEnabled()) {
+                System.out.println("Product is Available ");
                 return true;
             } else {
-                System.out.println("Product availability status: Not Available Button is visible but disabled");
+                System.out.println(" Product is NOT available ");
                 return false;
             }
         } catch (Exception e) {
-            System.out.println("Product availability status: Not Available");
+            System.out.println("Add to Cart button not found or product is unavailable.");
             return false;
+        }
     }
-}
+
     }
