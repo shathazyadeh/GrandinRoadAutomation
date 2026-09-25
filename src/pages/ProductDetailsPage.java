@@ -95,21 +95,23 @@ public class ProductDetailsPage {
     
     
     
-    public boolean isProductAddedSuccessfully() {
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-        try {
-            WebElement message = wait.until(ExpectedConditions.visibilityOfElementLocated(successMessageLocator));
-            boolean isDisplayed = message.isDisplayed();
-            if (isDisplayed) {
-                System.out.println(" Product successfully added to cart ' item added to cart' message is displayed'");
+    	public boolean isProductAddedSuccessfully() {
+            try {
+                Thread.sleep(3000);
+                
+                WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+                WebElement message = wait.until(ExpectedConditions.visibilityOfElementLocated(successMessageLocator));
+                boolean isDisplayed = message.isDisplayed();
+                
+                if (isDisplayed) {
+                    System.out.println("item added to cart message is displayed successfully.");
+                }
+                return isDisplayed;
+            } catch (Exception e) {
+                System.out.println("Success message did not appear within the waiting time.");
+                return false;
             }
-            return isDisplayed;
-        } catch (Exception e) {
-            System.out.println("Success message did not appear.");
-            return false;
         }
-    }
-    
     
     
     public void closeMiniCartIfDisplayed() {

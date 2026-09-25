@@ -2,24 +2,24 @@
 <testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2026-09-24T00:30:27 EEST" name="Default suite" finished-at="2026-09-24T00:30:53 EEST" duration-ms="26463">
+  <suite started-at="2026-09-25T22:16:31 EEST" name="Default suite" finished-at="2026-09-25T22:17:07 EEST" duration-ms="35658">
     <groups>
     </groups>
-    <test started-at="2026-09-24T00:30:27 EEST" name="Default test" finished-at="2026-09-24T00:30:53 EEST" duration-ms="26463">
-      <class name="testsCases.GrandinRoadProductDetailsTest">
-        <test-method is-config="true" signature="setUp()[pri:0, instance:testsCases.GrandinRoadProductDetailsTest@ba2f4ec]" started-at="2026-09-24T00:30:27 EEST" name="setUp" finished-at="2026-09-24T00:30:32 EEST" duration-ms="4877" status="PASS">
+    <test started-at="2026-09-25T22:16:31 EEST" name="Default test" finished-at="2026-09-25T22:17:07 EEST" duration-ms="35658">
+      <class name="testsCases.CartTest">
+        <test-method is-config="true" signature="setUp()[pri:0, instance:testsCases.CartTest@ba2f4ec]" started-at="2026-09-25T22:16:31 EEST" name="setUp" finished-at="2026-09-25T22:16:38 EEST" duration-ms="7185" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method signature="testProductDetailsValidation()[pri:0, instance:testsCases.GrandinRoadProductDetailsTest@ba2f4ec]" started-at="2026-09-24T00:30:32 EEST" name="testProductDetailsValidation" finished-at="2026-09-24T00:30:53 EEST" duration-ms="21316" status="PASS">
+        <test-method signature="testAddAndRemoveProductsFromCart()[pri:0, instance:testsCases.CartTest@ba2f4ec]" started-at="2026-09-25T22:16:38 EEST" name="testAddAndRemoveProductsFromCart" finished-at="2026-09-25T22:17:07 EEST" duration-ms="28146" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- testProductDetailsValidation -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:testsCases.GrandinRoadProductDetailsTest@ba2f4ec]" started-at="2026-09-24T00:30:53 EEST" name="tearDown" finished-at="2026-09-24T00:30:53 EEST" duration-ms="237" status="PASS">
+        </test-method> <!-- testAddAndRemoveProductsFromCart -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:testsCases.CartTest@ba2f4ec]" started-at="2026-09-25T22:17:07 EEST" name="tearDown" finished-at="2026-09-25T22:17:07 EEST" duration-ms="279" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-      </class> <!-- testsCases.GrandinRoadProductDetailsTest -->
+      </class> <!-- testsCases.CartTest -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>
