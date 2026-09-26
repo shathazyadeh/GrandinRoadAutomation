@@ -1,6 +1,7 @@
 package pages;
 
 import java.time.Duration;
+import java.util.ArrayList;
 import java.util.List;
 
 import org.openqa.selenium.By;
@@ -13,10 +14,10 @@ public class CartPage {
     WebDriver driver;
 
    
-    By cartItemNamesLocator = By.cssSelector(".c-product-card-layout__title, .c-product-card__name, [data-analytics-name='product_name']");
+    By cartItemNamesLocator = By.cssSelector("p.c-product-card__title");
     By removeButtonLocator = By.cssSelector("button[data-analytics-name='remove_item']");
     By cartIconLocator = By.cssSelector("button[data-analytics-name='show_mini_cart']");
-    
+    By cartItemPricesLocator = By.cssSelector("div.c-product-card-price .price span.sr-only");
     
     public CartPage(WebDriver driver) {
         this.driver = driver;
@@ -54,6 +55,32 @@ public class CartPage {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-       
         } 
+    
+    
+    
+    public List<String> getCartItemNames() {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+        List<WebElement> nameElements = wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(cartItemNamesLocator));
+        List<String> names = new ArrayList<>();
+        for (WebElement element : nameElements) {
+            names.add(element.getText().trim());
+        }
+        System.out.println("Product names found in Shopping Cart " + names);
+        return names;
+    }
+    
+    
+    
+    public List<String> getCartItemPrices() {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+        List<WebElement> priceElements = wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(cartItemPricesLocator));
+        List<String> prices = new ArrayList<>();
+        for (WebElement element : priceElements) {
+            prices.add(element.getText().trim());
+        }
+        System.out.println("Product prices found in Shopping Cart: " + prices);
+        return prices;
+    }
+    
     }

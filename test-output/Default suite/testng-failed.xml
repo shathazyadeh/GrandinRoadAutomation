@@ -6,7 +6,6 @@
       <class name="testsCases.CartTest">
         <methods>
           <include name="setUp"/>
-          <include name="tearDown"/>
           <include name="testAddAndRemoveProductsFromCart"/>
         </methods>
       </class> <!-- testsCases.CartTest -->

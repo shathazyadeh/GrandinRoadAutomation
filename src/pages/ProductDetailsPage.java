@@ -11,7 +11,7 @@ public class ProductDetailsPage {
     WebDriver driver;
 
     By productNameLocator = By.cssSelector("h1.t-universal-product-details-heading-info");
-    By productPriceLocator = By.cssSelector(".c-universal-price-new div.price");
+    By productPriceLocator = By.cssSelector("div.price span.sr-only");
     By addToCartLocator = By.cssSelector("button[data-analytics-name='add_to_cart']");
     By colorSwatchLocator = By.cssSelector("button.c-universal-options__option-swatch"); 
     
@@ -31,6 +31,16 @@ public class ProductDetailsPage {
         System.out.println("Product name found: " + name);
         return name;
     }
+    
+    
+    public String getProductPrice() {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+        WebElement priceElement = wait.until(ExpectedConditions.visibilityOfElementLocated(productPriceLocator));
+        String price = priceElement.getText().trim();
+        System.out.println("Product Price found: " + price);
+        return price;
+    }
+    
 
     public boolean isProductPriceDisplayed() {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
